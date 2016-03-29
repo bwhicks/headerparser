@@ -1,0 +1,12 @@
+{
+  "name": "headerparser",
+  "version": "0.0.0",
+  "description": "CodeCamp exercise that returns part of the HTTP for the client's browser",
+  "main": "server.js",
+  "repository": "",
+  "author": "benjamin.w.hicks@gmail.com",
+  "engines": {
+    "node": "4.1.1"
+  } 
+  
+}
