@@ -1,6 +1,8 @@
+//Call needed libraries
 var http = require('http')
 var url = require('url')
 
+//Function for finding the OS portion of the HTTP header
 function parseOS (string) { 
     var startCut = 0
     var endCut = 0
@@ -24,20 +26,22 @@ function parseOS (string) {
 
 
 
-
+//Initialize Server
 var server = http.createServer(function (req, res) {
     
+//Create empy JSON object for header objects    
     var headerparseJSON = {
         'ipaddress': req.headers['x-forwarded-for'],
         'language': req.headers['accept-language'],
         'software': parseOS(req.headers['user-agent'])
         
     }
-    
+//Return a response with a success code and JSON string
     res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify(headerparseJSON))
     
 
 })
 
+//Start the server
 server.listen(process.env.PORT || 8080)
